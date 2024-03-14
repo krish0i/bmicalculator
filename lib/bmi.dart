@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class Bmi extends StatefulWidget {
   const Bmi({super.key});
 
@@ -13,6 +14,7 @@ class _BmiState extends State<Bmi> {
   TextEditingController txtWeight = TextEditingController();
   double ans = 00;
   double BMI = 00;
+  String select = "";
 
   @override
   Widget build(BuildContext context) {
@@ -36,313 +38,249 @@ class _BmiState extends State<Bmi> {
         ),
       ),
       backgroundColor: const Color(0xffEEF2F3),
-      body: Column(
-        children: [
-          const Center(
-            child: Padding(
-              padding: EdgeInsets.only(top: 30),
-              child: Text(
-                "BMI Calcaulator",
-                style: TextStyle(
-                    color: Color(0xff289DF6),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30),
+      body: SingleChildScrollView(
+        /// Main Column
+        child: Column(
+          children: [
+            // SvgPicture.asset(""),
+            // SvgPicture.network(""),
+            // SvgPicture.file(""),
+             Center(
+              child: Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: Text(
+                  "BMI Calcaulator",
+                  style: TextStyle(
+                      color: Color(0xff289DF6),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30),
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 40, right: 40),
-              child: Stack(
-                children: [
-                  Positioned(
-                    child: Container(
-                      height: 680,
-                      width: 500,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffFFFBFE),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            offset: const Offset(0, 1),
-                            blurRadius: 5,
-                            color: Colors.black.withOpacity(0.3),
-                          ),
-                        ],
-                      ),
+            /// BMI Calcaulator
+            SizedBox(height: 40,),
+            /// main Container
+            Padding(
+              padding: const EdgeInsets.only(left: 20,right:20),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Color(0xffFFFBFE),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(0, 1),
+                    blurRadius: 2,
+                    color: Colors.black.withOpacity(0.3),
                     ),
-                  ),
-                  Positioned(
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 30, top: 14),
-                          child: Text(
-                            "Age",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xff202020),
-                              fontSize: 24,
+                  ],
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left:20,top: 20,right: 20),
+                      /// Age Row
+                      child: Row(
+                        children: [
+                          Text("Age",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.bold),
                             ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 50, top: 20),
-                          child: SizedBox(
-                            height: 50,
-                            width: 190,
+                          SizedBox(width: 45,),
+                          Expanded(
                             child: TextField(
-                              controller: txtAge,
                               decoration: InputDecoration(
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(10),
-                                    ),
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(10),
-                                    ),
-                                  ),
-                                  hintText: "Enter your age",
-                                  hintStyle: TextStyle(fontSize: 20)),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Positioned(
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 30, top: 90),
-                                  child: Text(
-                                    "Height",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xff202020),
-                                      fontSize: 24,
-                                    ),
-                                  ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
                                 ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "(cm)",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xff202020),
-                                    fontSize: 24,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 125, top: 105),
-                            child: SizedBox(
-                              height: 50,
-                              width: 190,
-                              child: TextField(
-                                controller: txtHeight,
-                                decoration: InputDecoration(
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(10),
-                                      ),
-                                    ),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(10),
-                                      ),
-                                    ),
-                                    hintText: "Enter your Height",
-                                    hintStyle: TextStyle(fontSize: 20)),
+                                hintText: "Enter your age",
+                                contentPadding: EdgeInsets.all(16),
                               ),
                             ),
                           ),
                         ],
-                      )),
-                  const Positioned(
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 30, top: 180),
-                                  child: Text(
-                                    "Weight",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xff202020),
-                                      fontSize: 24,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "(kg)",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xff202020),
-                                    fontSize: 24,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                  Positioned(
+                    /// Height
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
                       child: Row(
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 125, top: 190),
-                            child: SizedBox(
-                              height: 50,
-                              width: 190,
-                              child: TextField(
-                                controller: txtWeight,
-                                decoration: InputDecoration(
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(10),
-                                      ),
-                                    ),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(10),
-                                      ),
-                                    ),
-                                    hintText: "Enter your Height",
-                                    hintStyle: TextStyle(fontSize: 20)),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Height",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24),),
+                              Text("(cm)",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24),),
+                            ],
+                          ),
+                          SizedBox(width:15,),
+                          Expanded(
+                            child: TextField(
+                              controller: txtHeight,
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black)
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(10))
+                                ),
+                                hintText: "Enter your Height",
+                                contentPadding: EdgeInsets.all(16)
                               ),
                             ),
-                          ),
+                          )
                         ],
-                      )),
-                  Positioned(
-                    top: 300,
-                    left: 20,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(140, 50),
-                        backgroundColor: const Color(0xffDBEFFE),
-                        shape: const RoundedRectangleBorder(
-                            borderRadius:
-                            BorderRadius.all(Radius.circular(10))),
-                      ),
-                      onPressed: () {},
-                      child: const Text(
-                        "Male",
-                        style: TextStyle(color: Colors.black, fontSize: 22),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: 300,
-                    left: 190,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(140, 50),
-                          backgroundColor: const Color(0xffDBEFFE),
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(10)))),
-                      onPressed: () {},
-                      child: const Text(
-                        "Female",
-                        style: TextStyle(color: Colors.black, fontSize: 22),
+                    /// weight
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20,top: 10, right: 20),
+                      child: Row(
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Weight",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24),),
+                              Text("(kg)",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24),),
+                            ],
+                          ),
+                          SizedBox(width:10,),
+                          Expanded(
+                            child: TextField(
+                              controller: txtWeight,
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black)
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(10))
+                                ),
+                                hintText: "Enter your Weight",
+                                contentPadding: EdgeInsets.all(16)
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: 390,
-                    left: 10,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(320, 70),
-                          backgroundColor: const Color(0xff289DF6),
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(10)))),
-                      onPressed: () {
+                    /// Male and Female Row
+                    Row(
+                      children: [
+                        /// Male
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left:10,top: 50),
+                            child: GestureDetector(
 
+                              onTap: () {
+
+                                setState(() {
+                                  select = "Male";
+
+                                });
+                              },
+                              child: Container(
+                                height: 50,
+                                width: 115,
+                                decoration: BoxDecoration(
+                                color : select == 0? Color(0xff3973DA) : Color(0xff289DF6),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "Male",
+                                    style: TextStyle(color: Colors.black, fontSize: 20,fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        /// Female
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left:10,top: 50,right: 20),
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  select = "Female";
+                                });
+                              },
+                              child: Container(
+                                height: 50,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color : select == 1? Color(0xff3973DA) : Color(0xff289DF6),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "Female",
+                                    style: TextStyle(color: Colors.black, fontSize: 20,fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ]
+                    ),
+                    /// Calculate BMI GestureDetector
+                    GestureDetector(
+                      onTap: () {
                         setState(() {
-                          BMI = double.parse(txtHeight.text) * double.parse(txtHeight.text);
-                          ans =  int.parse(txtWeight.text) / BMI;
+                          ans = double.parse(txtHeight.text) * double.parse(txtHeight.text);
+                          BMI = double.parse(txtWeight.text) / ans ;
                         });
                       },
-                      child: const Text(
-                        "Calculate BMI",
-                        style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20,top: 50,right: 20 ),
+                        child: Container(
+                          height: 55,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Color(0xff289DF6),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(child: Text("Calculate BMI",style: TextStyle(color: Color(0xffFFFBFE),fontSize: 20,fontWeight: FontWeight.bold),)),
+                        ),
                       ),
                     ),
-                  ),
-                  const Positioned(
-                      top: 510,
-                      left: 10,
-                      child: Text(
-                        "BMI:",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
-                      )),
-                  Positioned(
-                      top: 550,
-                      left: 10,
-                      child: Text("$ans",
-                        style: TextStyle(color: Colors.black, fontSize: 20),
-                      )),
-                  const Positioned(
-                    top: 580,
-                    left: 10,
-                    child: Text(
-                      "Result:",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 23,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  const Positioned(
-                    top: 620,
-                    left: 10,
-                    child: Text(
-                      "Extremely obese",
-                      style: TextStyle(color: Colors.black, fontSize: 20),
-                    ),
-                  ),
-                ],
+                    /// Male or Female
+                    Align(alignment: Alignment.centerLeft,child: Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 15),
+                      child: Text("Male or Female",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.bold),),
+                      ),),
+                    /// Print the male or Female
+                    Align(alignment: Alignment.centerLeft,child: Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 15),
+                      child: Text("$select",style: TextStyle(color: Colors.black,fontSize: 20),),
+                      ),),
+                    /// BMI Simple text
+                    Align(alignment: Alignment.centerLeft,child: Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 15),
+                      child: Text("BMI",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.bold),),
+                      ),),
+                    /// Print the value of BMI
+                    Align(alignment: Alignment.centerLeft,child: Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 10),
+                      child: Text("$BMI",style: TextStyle(color: Colors.black,fontSize: 20),),
+                      ),),
+                    /// Result
+                    Align(alignment: Alignment.centerLeft,child: Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 10),
+                      child: Text("Result",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.bold),),
+                      ),),
+                    /// Extremely obese
+                    Align(alignment: Alignment.centerLeft,child: Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 10, bottom: 15),
+                      child: Text("Extremely obese",style: TextStyle(color: Colors.black,fontSize: 20),),
+                      ),),
+                  ],
+                ),
               ),
             ),
-          )
-        ],
+            SizedBox(height: 50,)
+          ],
+        ),
       ),
     );
   }

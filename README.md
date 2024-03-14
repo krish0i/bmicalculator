@@ -17,6 +17,6 @@ samples, guidance on mobile development, and a full API reference.
 
 <p>
   <img src="https://github.com/krish0i/bmicalculator/assets/162409974/d1cfe1a4-408a-414c-9e81-e0199ce0579e" height='60%' width='30%'>
-  <img src="https://github.com/krish0i/bmicalculator/assets/162409974/a30801d9-2f9b-405c-99c8-ce39d6bb9898" height='60%' width='30%'>
+  <img src="https://github.com/krish0i/bmicalculator/assets/162409974/a202435a-f972-4b22-8315-49445bacb949" height='60%' width='30%'>
   <img src="https://github.com/krish0i/bmicalculator/assets/162409974/023f0045-97d0-4dde-8279-8419d0d2ab6c" height='60%' width='30%'>
 </p>

@@ -13,11 +13,11 @@ class _MyAppState extends State<Login> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              height: 250,
-              width: 400,
+              height: 300,
+              width: 380,
               child: Image.asset("assets/bmi.png"),
             ),
             const Padding(

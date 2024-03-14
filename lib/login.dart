@@ -13,7 +13,7 @@ class _MyAppState extends State<Login> {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
               height: 300,

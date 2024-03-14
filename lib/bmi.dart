@@ -181,7 +181,7 @@ class _BmiState extends State<Bmi> {
                                 height: 50,
                                 width: 115,
                                 decoration: BoxDecoration(
-                                color : select == 0? Color(0xff3973DA) : Color(0xff289DF6),
+                                color : select == "Male"? Color(0xff3973DA) : Color(0xff289DF6),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Center(
@@ -208,7 +208,7 @@ class _BmiState extends State<Bmi> {
                                 height: 50,
                                 width: 100,
                                 decoration: BoxDecoration(
-                                  color : select == 1? Color(0xff3973DA) : Color(0xff289DF6),
+                                  color : select == "Female"? Color(0xff3973DA) : Color(0xff289DF6),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Center(
